@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ProductAddToCart extends BaseClass {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
         AndroidDriver<AndroidElement> driverAddToCart = Capabilities();
 
@@ -30,9 +30,9 @@ public class ProductAddToCart extends BaseClass {
         driverAddToCart.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 
         int count = driverAddToCart.findElements(By.id("com.androidsample.generalstore:id/productName")).size();
-
+        String text = "";
         for (int i = 0; i < count; i++) {
-            String text = driverAddToCart.findElements(By.id("com.androidsample.generalstore:id/productName")).get(i).getText();
+             text = driverAddToCart.findElements(By.id("com.androidsample.generalstore:id/productName")).get(i).getText();
 
             if (text.equalsIgnoreCase("Jordan 6 Rings")) {
 
@@ -42,8 +42,44 @@ public class ProductAddToCart extends BaseClass {
 
         }
 
-
         driverAddToCart.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
+
+        Thread.sleep(4000);
+
+        String temp = driverAddToCart.findElementById("com.androidsample.generalstore:id/productName").getText();
+
+        if(temp.equals("Jordan 6 Rings")) {
+            System.out.println("Matched");
+        }
+        else {
+            System.out.println("Not Matched");
+        }
+
+        //=============== ADDED SCRIPTS DO NOT TOUCH ================//
+
+      /*
+
+      double priceCount = driverAddToCart.findElements(By.id("com.androidsample.generalstore:id/rvCartProductList")).size();
+        double totalPay = 0;
+        double tempPay = 0;
+
+        for (int j = 0; j < priceCount - 1; j++){
+
+            tempPay =  Double.parseDouble(driverAddToCart.findElements(By.id("com.androidsample.generalstore:id/rvCartProductList")).get(j).getText().substring(1));
+            totalPay = totalPay + tempPay;
+        }
+
+        double finalPayment = Double.parseDouble(driverAddToCart.findElementById("com.androidsample.generalstore:id/totalAmountLbl").getText().substring(1));
+
+        if(totalPay == finalPayment){
+            System.out.println("Equal");
+        }
+        else {
+            System.out.println("Error");
+        }
+
+        */
+
 
     }
 
