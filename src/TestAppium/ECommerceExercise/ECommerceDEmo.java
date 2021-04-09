@@ -14,6 +14,7 @@ public class ECommerceDEmo extends BaseClass{
         driverECommerce.findElementById("com.androidsample.generalstore:id/spinnerCountry").click();
         driverECommerce.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));" ).click();
         driverECommerce.findElementById("com.androidsample.generalstore:id/nameField").sendKeys("Hello");
+        driverECommerce.hideKeyboard();
         driverECommerce.findElementById("com.androidsample.generalstore:id/radioMale").isDisplayed();
         driverECommerce.findElementById("com.androidsample.generalstore:id/radioFemale").click();
         driverECommerce.findElementById("com.androidsample.generalstore:id/btnLetsShop").click();
