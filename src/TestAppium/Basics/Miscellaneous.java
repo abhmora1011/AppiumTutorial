@@ -1,12 +1,8 @@
-package TestAppium;
+package TestAppium.Basics;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
-import io.appium.java_client.android.nativekey.AndroidKey;
 
 import java.net.MalformedURLException;
-
-import static io.appium.java_client.android.AndroidKeyCode.*;
 
 public class Miscellaneous extends AppiumMain{
 
