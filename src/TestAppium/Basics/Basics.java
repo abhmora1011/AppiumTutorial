@@ -1,5 +1,6 @@
 package TestAppium.Basics;
 
+import TestAppium.pageObject.HomePage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
@@ -10,6 +11,8 @@ public class Basics extends AppiumMain{
     public static void main(String[] args) throws MalformedURLException {
 
         AndroidDriver<AndroidElement> dr = Capabilities();
+
+        HomePage hp = new HomePage(dr);
 
         dr.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
         dr.findElementByXPath("//android.widget.TextView[@text='3. Preference dependencies']").click();
